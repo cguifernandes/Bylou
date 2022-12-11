@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from './components/Header/header';
 
 function App() {
   return (
     <>
-      <p>oi</p>
+      <Header />
     </>
   );
 }
