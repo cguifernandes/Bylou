@@ -1,23 +1,18 @@
-import { Head, HeadImg, Ul, HeadNav } from '../../style/styleHeader';
+import { Head, HeadImg, Ul } from '../../style/styleHeader';
+// import Logo from '../../img/image.png'
 
 const Header = () => {
-
     return (  
         <header>
             <Head>
                 <HeadImg>
-                    <img  alt="Logo imagem"></img>
+                    <img alt="Logo imagem"></img>
                 </HeadImg>
                 <Ul>
-                    <li>Jogos</li>
-                    <li>Esportes</li>
-                    <li>Loja</li>
+                    <li>Sobre</li>
+                    <li>Contato</li>
+                    <li>Produtos</li>
                 </Ul>
-                <HeadNav >
-                    <div className="line-1"></div>
-                    <div className="line-2"></div>
-                    <div className="line-3"></div>
-                </HeadNav>
             </Head>
         </header>
     );
