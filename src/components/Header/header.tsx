@@ -9,9 +9,9 @@ const Header = () => {
                     <img alt="Logo imagem"></img>
                 </HeadImg>
                 <Ul>
-                    <li>Sobre</li>
-                    <li>Produtos</li>
-                    <li>Contato</li>
+                    <li><a href='#about'>Sobre</a></li>
+                    <li><a href='#'>Produtos</a></li>
+                    <li><a href='#'>Contato</a></li>
                 </Ul>
             </Head>
         </header>
