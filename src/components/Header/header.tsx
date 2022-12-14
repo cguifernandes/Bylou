@@ -10,8 +10,8 @@ const Header = () => {
                 </HeadImg>
                 <Ul>
                     <li>Sobre</li>
-                    <li>Contato</li>
                     <li>Produtos</li>
+                    <li>Contato</li>
                 </Ul>
             </Head>
         </header>

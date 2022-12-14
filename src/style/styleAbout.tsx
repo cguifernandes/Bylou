@@ -17,6 +17,11 @@ export const SText = styled.div`
     p, span {
         color: var(--green);
     }
+
+    .icon {
+        font-size: 18px;
+        margin: 0px 2px;
+    }
 `;
 
 export const SImg = styled.div`

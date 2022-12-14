@@ -1,11 +1,13 @@
 import Header from './components/Header/header';
-import About from './components/a/about';
+import Products from './components/Products/products';
+import About from './components/Sobre/about';
 
 function App() {
   return (
     <>
       <Header />
       <About />
+      <Products />
     </>
   );
 }
