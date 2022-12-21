@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
-export const Head = styled.nav`
-    display: flex;
-    align-items: center;
-    height: 10vh;
-    border-bottom: 2px solid var(--green2)
-`;
+export const HeadImg = styled.section`
+    width: 30%;
 
-export const HeadImg = styled.div`
-    width: 30%
+    img {
+        width: 140px;
+        margin-left: 35px;
+    }
 `;
 
 export const Ul = styled.ul`
@@ -21,13 +19,13 @@ export const Ul = styled.ul`
     a {
         text-decoration: none;
         transition: 0.4s all;
-        color: var(--green2);
+        color: #fff;
     }
 
     a:after {
         display:block;
         content: '';
-        border-bottom: solid 2px var(--green2);
+        border-bottom: solid 2px #fff;
         margin-right: 2px;
         transform: scaleX(0);
         transition: transform 320ms ease-in-out;
@@ -42,5 +40,13 @@ export const Ul = styled.ul`
         font-weight: 500;
         font-size: 18px;
     }
+`;
+
+export const Head = styled.nav`
+    display: flex;
+    align-items: center;
+    height: 15vh;
+    border-bottom: 2px solid var(--green2);
+    background-color: var(--green);
 `;
 

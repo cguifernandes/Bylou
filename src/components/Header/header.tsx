@@ -1,12 +1,12 @@
 import { Head, HeadImg, Ul } from '../../style/styleHeader';
-// import Logo from '../../img/image.png'
+import Logo from '../../img/image.png';
 
 const Header = () => {
     return (  
         <header>
             <Head>
                 <HeadImg>
-                    <img alt="Logo imagem"></img>
+                    <img src={Logo} alt="Logo imagem"></img>
                 </HeadImg>
                 <Ul>
                     <li><a href='#about'>Sobre</a></li>
