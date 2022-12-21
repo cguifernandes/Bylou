@@ -20,6 +20,7 @@ export const Ul = styled.ul`
         text-decoration: none;
         transition: 0.4s all;
         color: #fff;
+        font-size: 18px;
     }
 
     a:after {

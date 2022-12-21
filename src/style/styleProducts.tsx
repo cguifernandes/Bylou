@@ -6,3 +6,7 @@ export const SProducts = styled.section`
         color: var(--green2);
     }
 `;
+
+export const Facial = styled.div`
+    
+`;
