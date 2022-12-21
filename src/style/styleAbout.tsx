@@ -21,7 +21,6 @@ export const SSection = styled.div`
         margin: 0px 30px;
         display: flex;  
         align-items: center;
-        justify-content: center;
 
         h3 {
             color: var(--green2);

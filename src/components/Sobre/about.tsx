@@ -1,6 +1,6 @@
 import { Sobre, SText, SImg, SSection } from '../../style/styleAbout';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faDog, faEarth, faLeaf, faShield, faMicrochip } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faDog, faEarth, faLeaf, faShield, faMicrochip, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 const About = () => {
     return (  
@@ -31,7 +31,7 @@ const About = () => {
                     </div>
                 </div>
                 <div className="item">
-                    <span></span>
+                    <span><FontAwesomeIcon className='icon' icon={faCheckCircle} /></span>
                     <div className="text">
                         <p>E 100%</p>
                         <h3>Eficaz</h3>
