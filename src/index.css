@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  scroll-padding-top: 140px;
 }
 
 :root {
@@ -15,6 +16,30 @@ body {
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes navLinkFadeIn {
+  from {
+    width: auto;
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    width: auto;
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes navLinkFadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 code {

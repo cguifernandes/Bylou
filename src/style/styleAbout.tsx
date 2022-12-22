@@ -4,6 +4,7 @@ export const Sobre = styled.section`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    padding-top: 140px;
 `;
 
 export const SSection = styled.div`

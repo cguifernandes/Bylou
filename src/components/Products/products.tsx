@@ -23,7 +23,7 @@ const Products = () => {
     const [response, setResponse] = useState<Array<TypeProdutos>>();
 
     useEffect(() => {
-        api.get('/').then(({data}) => {
+        api.get('/facial').then(({data}) => {
             setResponse(data)
         })
     }, [])
@@ -37,6 +37,7 @@ const Products = () => {
                     <Facial>
                         <article className='card'>
                                 <h2>{produtos.nome}</h2>
+                                <p></p>
                         </article>
                     </Facial>
                 ))     
