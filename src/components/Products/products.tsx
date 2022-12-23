@@ -1,48 +1,58 @@
 import { useEffect, useState } from 'react';
-import { SProducts, Facial } from '../../style/styleProducts';
+import { Produtos, Cards, Facial } from '../../style/styleProducts';
 import api from '../../api'
 
 export type TypeProdutos = {
     linha: "Facial" | "Corporal" | "Baby" | "Capilar",
     subtitulo?: string,
     nome: string,
-    Valor: Array<TypeVProdutos>,
+    Valor: Array<TypeValor>,
     descricao: string,
     disponibilidade: boolean,
     sabor?: string,
     alerta?: string
 }
 
-type TypeVProdutos = {
+type TypeValor = {
     volume?: number,
     valor: string,
     embalagem?: string
 }
 
 const Products = () => {
+    let i = 0;
     const [response, setResponse] = useState<Array<TypeProdutos>>();
 
     useEffect(() => {
-        api.get('/facial').then(({data}) => {
+        api.get('/facial/limpeza').then(({data}) => {
             setResponse(data)
         })
     }, [])
 
-
     return (  
-        <SProducts>
+        <Produtos>
             <h1>Linha Facial</h1>
-            {
-                response?.map((produtos) => (
-                    <Facial>
-                        <article className='card'>
-                                <h2>{produtos.nome}</h2>
-                                <p></p>
-                        </article>
-                    </Facial>
-                ))     
-            }
-        </SProducts>
+            <h2>Limpeza Facial</h2>
+            <Cards>
+                {
+                    response?.map((produtos) => (
+                        <Facial>
+                                <div className="title">
+                                    <h3>{produtos.nome}</h3>
+                                </div>
+                                <div className="text">
+                                    <p>{produtos.descricao}</p>
+                                </div>
+                                <div className="footer">
+                                    <p>Volume: {produtos.Valor[i].volume} ml</p>
+                                        <p><strong>Valor: {produtos.Valor[i].valor}</strong></p>
+                                </div>
+                        </Facial>
+                    ))     
+                }
+            </Cards>
+            <h2>Linha Capilar</h2>
+        </Produtos>
     );
 }
  

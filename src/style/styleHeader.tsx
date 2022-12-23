@@ -109,5 +109,7 @@ export const Head = styled.nav`
     background-color: var(--green);
     position: fixed;
     width: 100%;
+    z-index: 999;
+
 `;
 

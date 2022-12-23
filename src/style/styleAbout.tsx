@@ -9,7 +9,8 @@ export const Sobre = styled.section`
 
 export const SSection = styled.div`
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
     justify-content: center;
     margin: 40px 0px;
 
@@ -17,7 +18,7 @@ export const SSection = styled.div`
         width: 240px;
         height: 80px;
         background-color: var(--grey);
-        border-radius: 15px;
+        border-radius: 10px;
         padding: 10px;
         margin: 0px 30px;
         display: flex;  
@@ -38,8 +39,27 @@ export const SSection = styled.div`
             flex-wrap: wrap;
 
             p {
-                width: 100%;
+                width: 90%;
             }
+        }
+    }
+
+    @media (max-width: 1310px) {
+        grid-template-rows: auto auto;
+        grid-template-columns: 35% 35%;
+
+        .item {
+            width: 85%;
+            margin: 10px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 45% 45%;
+
+        .item {
+            width: 90%;
+            margin: 10px;
         }
     }
 `;
@@ -61,10 +81,19 @@ export const SText = styled.div`
         font-size: 18px;
         margin: 0px 2px;
     }
+    
+    @media (max-width: 1445px) {
+        flex: 2;
+    }
+
+    @media (max-width: 1170px) {
+        width: 60%;
+        margin: 40px;
+    }
 `;
 
 export const SImg = styled.div`
-    width: 50%;
+    width: 40%;
     flex: 1;
 
     .bloob {
@@ -72,4 +101,20 @@ export const SImg = styled.div`
         display: block;
         margin: 0 auto;
     }
+
+    @media (max-width: 1445px) {
+        flex: 0;
+    }
+
+    @media (max-width: 1310px) {
+        .bloob {
+            width: 450px;  
+        }
+    }
+
+    @media (max-width: 1030px) {
+        .bloob {
+            display: none;
+        }
+    }   
 `;
