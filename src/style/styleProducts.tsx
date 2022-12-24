@@ -11,52 +11,74 @@ export const Produtos = styled.section`
         color: var(--green2);
         font-size: 20px;
         font-weight: normal;
+        padding: 20px 0px;
     }
 `;
 
-export const Facial = styled.div`
-    height: 450px;
+export const Card = styled.div`
+    height: 550px;
     background-color: var(--grey);
-    width: 75%;
+    width: 92%;
     border-radius: 10px;
+    margin: 20px;
     position: relative;
-    margin: 20px 0px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-    h3 {
+    .title { 
+        padding: 10px;
         background-color: var(--green);
-        text-align: center;
         border-radius: 10px 10px 0px 0px;
-        padding: 15px;
-        color: #fff;
-    }
 
-    .title {
-        position: absolute;
+        h3 {
+            text-align: center;
+            color: #fff;
+        }
+
+        h4 {
+            text-align: center;
+            color: #fff;
+        }
+
+        p {
+            padding-top: 5px;
+            text-align: center;
+            color: #fff;
+        }
     }
 
     .text {
-        position: absolute;
-        top: 80px;
+        padding: 15px;
 
         p {
-            padding: 15px;
             color: var(--green);
             text-align: center;
+        }
+
+        .alert {
+            color: red;
+            font-weight: 500;
         }
     }
 
     .footer {
-        padding: 15px;
-        background-color: var(--green);
         position: absolute;
         bottom: 0;
-        width: 94%;
+        padding: 15px 0px;
+        background-color: var(--green);
         border-radius: 0px 0px 10px 10px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
         p {
             color: #fff;
             text-align: center;
+            margin: 0px 10px;
+        }
+
+        strong {
+            font-size: 20px;
         }
     }
 `;
@@ -65,5 +87,4 @@ export const Cards = styled.div`
     display: grid;
     justify-items: center;
     grid-template-columns: 33.33% 33.33% 33.33%;
-   
 `;

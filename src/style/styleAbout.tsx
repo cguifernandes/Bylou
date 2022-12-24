@@ -47,6 +47,7 @@ export const SSection = styled.div`
     @media (max-width: 1310px) {
         grid-template-rows: auto auto;
         grid-template-columns: 35% 35%;
+        justify-items: center;
 
         .item {
             width: 85%;
@@ -55,11 +56,11 @@ export const SSection = styled.div`
     }
 
     @media (max-width: 768px) {
-        grid-template-columns: 45% 45%;
+        grid-template-columns: 50% 50%;
+        justify-items: center;
 
         .item {
             width: 90%;
-            margin: 10px;
         }
     }
 `;
