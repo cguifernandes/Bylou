@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Produtos, Cards, Card } from '../../style/styleProducts';
+import { Produtos, Cards, Card, Navegation } from '../../style/styleProducts';
 import api from '../../api'
 
 export type TypeProdutos = {
@@ -43,9 +43,22 @@ const Products = () => {
 
 
     return (  
-        <Produtos>
-            <h1>Linha Facial</h1>
-            <h2>Limpeza Facial</h2>
+        <Produtos id='produtos'>
+            <h1>Produtos</h1>
+            <Navegation>
+                <div className="input">
+                    <input type="text" placeholder='Pesquise produtos...'></input>
+                </div>
+                <div className="select">
+                    <select>
+                        <option>a</option>
+                        <option>b</option>
+                        <option>vv</option>
+                        <option>d</option>
+                    </select>
+                </div>
+                
+            </Navegation>
             <Cards>
                 {
                     response?.map((produtos) => {
@@ -63,29 +76,24 @@ const Products = () => {
                                         <p>{produtos.descricao} ...Ver mais</p>
                                         <p className='alert'>{produtos.alerta}</p>
                                     </div>
-                                    <div className="footer">
-                                        {
-                                            valores?.[j].map((objeto) => {
-                                                return (
-                                                    <>
-                                                        <div style={{ margin: "0 auto" }}>
-                                                            {objeto.volume ? <p>Volume: {objeto.volume}</p> : <p>Este produto não tem volume.</p>}
-                                                            <p><strong>{objeto.valor}</strong></p>
-                                                            {objeto.embalagem ? <p>Embalagem: {objeto.embalagem}</p> : ""}
-                                                        </div>
-                                                    </>
-                                                )
-                                            })
-                                            
-                                        } 
-                                        
-                                    </div>
+                                    {
+                                        valores?.[j].map((objeto) => {
+                                            return (
+                                                <div className="footer">
+                                                    <div style={{ margin: "0 auto" }}>
+                                                        {objeto.volume ? <p>Volume: {objeto.volume}</p> : <p>Este produto não tem volume.</p>}
+                                                        <p><strong>{objeto.valor}</strong></p>
+                                                        {objeto.embalagem ? <p>Embalagem: {objeto.embalagem}</p> : ""}
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+                                    } 
                             </Card>
                         )
                     })
                 }
             </Cards>
-            <h2>Linha Capilar</h2>
         </Produtos>
     );
 }

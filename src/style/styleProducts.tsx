@@ -25,7 +25,7 @@ export const Card = styled.div`
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
     .title { 
-        padding: 10px;
+        padding: 15px;
         background-color: var(--green);
         border-radius: 10px 10px 0px 0px;
 
@@ -79,6 +79,41 @@ export const Card = styled.div`
 
         strong {
             font-size: 20px;
+        }
+    }
+`;
+
+export const Navegation = styled.div`
+    display: flex;
+    margin: 25px 0px;   
+    justify-content: center;
+
+    .input {
+        width: 50%;
+
+        input {
+            width: 90%;
+            color: #fff;
+            font-size: 16px;
+            display: block;
+            margin: 0 auto;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: var(--green);
+            box-shadow: 0 0 0 0;
+            outline: 0;
+            border: 0px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+    }
+
+    .select {
+        width: 50%;
+
+        select {
+            width: 90%;
+            display: block;
+            margin: 0 auto;
         }
     }
 `;
