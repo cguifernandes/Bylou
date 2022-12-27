@@ -27,7 +27,7 @@ const Products = () => {
     const [response, setResponse] = useState<Array<TypeProdutos>>();
     const [nenhumResultado, setNenhumResultado] = useState(false);
     const [valores, setValores] = useState<Array<Array<TypeValor>>>();
-
+    console.log(nenhumResultado)
    
         useEffect(() => {
             let listValor : any = [];
@@ -55,6 +55,11 @@ const Products = () => {
                 if (data.length === 0) {
                     setNenhumResultado(true)
                 }
+                
+                else {
+                    setNenhumResultado(false)
+                }
+
                 for (let i = 0; i < data.length; i++) {
                     searchCard.push(data[i])  
                 }
@@ -91,7 +96,7 @@ const Products = () => {
             <Cards>
                 {
                     nenhumResultado ? 
-                    <p className="alert">Nenhum produto encontrado 😥!</p> 
+                    <p className="nenhumResultado">Nenhum produto encontrado 😥!</p> 
                     :
                     response?.length !== 0
                     ? 

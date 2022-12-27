@@ -141,7 +141,7 @@ export const Cards = styled.div`
     justify-items: center;
     grid-template-columns: 33.33% 33.33% 33.33%;
 
-    .alert {
+    .nenhumResultado {
         text-align: center;
         grid-column-start: 1;
         grid-column-end: 4;
