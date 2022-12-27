@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Produtos, Cards, Card, Navegation } from '../../style/styleProducts';
+import { Produtos, Navegation, Cards, Card } from '../../style/styleProducts';
 import api from '../../api'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 export type TypeProdutos = {
     linha: "Facial" | "Corporal" | "Baby" | "Capilar",
@@ -20,26 +22,53 @@ type TypeValor = {
 }
 
 const Products = () => {
-    let j = -1;
 
+    let j = -1;
     const [response, setResponse] = useState<Array<TypeProdutos>>();
+    const [nenhumResultado, setNenhumResultado] = useState(false);
     const [valores, setValores] = useState<Array<Array<TypeValor>>>();
 
-    useEffect(() => {
-        let listValor : any = [];
-        api.get('/').then(({ data }) => {
-            setResponse(data)
-        
-            for (let i = 0; i < data.length; i++) {
-                listValor.push(data[i].Valor)
-            }
+   
+        useEffect(() => {
+            let listValor : any = [];
+            api.get('/').then(({ data }) => {
+                setResponse(data)
+            
+                for (let i = 0; i < data.length; i++) {
+                    listValor.push(data[i].Valor)
+                }
+                setValores(listValor)
 
-            setValores(listValor)
+            }).catch(error => {
+                console.log(error);
+            })
+        }, [])
+    
+    
 
-        }).catch(error => {
-            console.log(error);
-        })
-    }, [])
+    function search(target : any) {
+        const value = target.value;
+        let searchCard : any = [];
+
+        if (value !== "") {
+            api.get(`/search/${value}`).then(({ data }) => {
+                if (data.length === 0) {
+                    setNenhumResultado(true)
+                }
+                for (let i = 0; i < data.length; i++) {
+                    searchCard.push(data[i])  
+                }
+                setResponse(searchCard)
+            })  
+        }
+
+        else {
+            setNenhumResultado(false)
+            api.get("/").then(({ data }) => {
+                setResponse(data)
+            })
+        }
+    }
 
 
     return (  
@@ -47,7 +76,8 @@ const Products = () => {
             <h1>Produtos</h1>
             <Navegation>
                 <div className="input">
-                    <input type="text" placeholder='Pesquise produtos...'></input>
+                    <input onChange={e => search(e.target)} type="text" placeholder='Pesquise produtos...'></input>
+                    <div className='search'><FontAwesomeIcon className='icon' icon={faSearch} /></div>
                 </div>
                 <div className="select">
                     <select>
@@ -57,10 +87,14 @@ const Products = () => {
                         <option>d</option>
                     </select>
                 </div>
-                
             </Navegation>
             <Cards>
                 {
+                    nenhumResultado ? 
+                    <p className="alert">Nenhum produto encontrado 😥!</p> 
+                    :
+                    response?.length !== 0
+                    ? 
                     response?.map((produtos) => {
                         j++;
                         return (
@@ -76,22 +110,26 @@ const Products = () => {
                                         <p>{produtos.descricao} ...Ver mais</p>
                                         <p className='alert'>{produtos.alerta}</p>
                                     </div>
-                                    {
-                                        valores?.[j].map((objeto) => {
-                                            return (
-                                                <div className="footer">
-                                                    <div style={{ margin: "0 auto" }}>
-                                                        {objeto.volume ? <p>Volume: {objeto.volume}</p> : <p>Este produto não tem volume.</p>}
-                                                        <p><strong>{objeto.valor}</strong></p>
-                                                        {objeto.embalagem ? <p>Embalagem: {objeto.embalagem}</p> : ""}
-                                                    </div>
-                                                </div>
-                                            )
-                                        })
-                                    } 
+                                    <div className="footer">
+                                        {
+                                            valores?.[j].map((objeto) => {
+                                                return (
+                                                
+                                                        <div style={{ margin: "0 auto" }}>
+                                                            {objeto.volume ? <p>Volume: {objeto.volume}</p> : <p>Este produto nÃ£o tem volume.</p>}
+                                                            <p><strong>{objeto.valor}</strong></p>
+                                                            {objeto.embalagem ? <p>Embalagem: {objeto.embalagem}</p> : ""}
+                                                        </div>
+                                                    
+                                                )
+                                            })
+                                        } 
+                                    </div>
                             </Card>
                         )
                     })
+                    :
+                    ""
                 }
             </Cards>
         </Produtos>

@@ -90,6 +90,8 @@ export const Navegation = styled.div`
 
     .input {
         width: 50%;
+        display: flex;
+        position: relative;
 
         input {
             width: 90%;
@@ -103,7 +105,23 @@ export const Navegation = styled.div`
             box-shadow: 0 0 0 0;
             outline: 0;
             border: 0px;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        .search {
+            width: 25px;
+            background-color: var(--green);
+            padding: 14.5px;
+            border-radius: 0px 5px 5px 0px;
+            border-left: 2px solid #fff;
+            position: absolute;
+            right: 20px;
+
+            .icon {
+                color: #fff;
+                display: block;
+                margin: auto auto;
+                font-size: 20px;
+            }
         }
     }
 
@@ -122,4 +140,12 @@ export const Cards = styled.div`
     display: grid;
     justify-items: center;
     grid-template-columns: 33.33% 33.33% 33.33%;
+
+    .alert {
+        text-align: center;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        padding: 120px 0px;
+        font-size: 18px;
+    }
 `;
