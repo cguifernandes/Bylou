@@ -13,6 +13,13 @@ export const Produtos = styled.section`
         font-weight: normal;
         padding: 20px 0px;
     }
+    .nenhumResultado {
+        text-align: center;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        padding: 120px 0px;
+        font-size: 18px;
+    }
 `;
 
 export const Card = styled.div`
@@ -88,7 +95,7 @@ export const Navegation = styled.div`
     margin: 25px 0px;   
     justify-content: center;
 
-    .input {
+    .search {
         width: 50%;
         display: flex;
         position: relative;
@@ -99,27 +106,31 @@ export const Navegation = styled.div`
             font-size: 16px;
             display: block;
             margin: 0 auto;
-            padding: 15px;
+            padding: 0px 15px;
             border-radius: 5px;
             background-color: var(--green);
             box-shadow: 0 0 0 0;
             outline: 0;
             border: 0px;
+            transition: all 0.5s;
+            height: 54px;
         }
 
-        .search {
-            width: 25px;
+        .icon {
+            height: 54px;
             background-color: var(--green);
-            padding: 14.5px;
+            width: 54px;
             border-radius: 0px 5px 5px 0px;
             border-left: 2px solid #fff;
             position: absolute;
-            right: 20px;
+            right: 2%;
+            display: flex;
+            align-items: center;  
+            justify-content: center;     
+            pointer-events: none; 
 
-            .icon {
+            svg {
                 color: #fff;
-                display: block;
-                margin: auto auto;
                 font-size: 20px;
             }
         }
@@ -127,12 +138,6 @@ export const Navegation = styled.div`
 
     .select {
         width: 50%;
-
-        select {
-            width: 90%;
-            display: block;
-            margin: 0 auto;
-        }
     }
 `;
 
@@ -141,11 +146,4 @@ export const Cards = styled.div`
     justify-items: center;
     grid-template-columns: 33.33% 33.33% 33.33%;
 
-    .nenhumResultado {
-        text-align: center;
-        grid-column-start: 1;
-        grid-column-end: 4;
-        padding: 120px 0px;
-        font-size: 18px;
-    }
 `;
