@@ -114,7 +114,15 @@ export const Navegation = styled.div`
             border: 0px;
             transition: all 0.5s;
             height: 54px;
+
+            ::placeholder {
+                color: #fff;
+                opacity: 0.4;
+                font-family: 'Poppins', sans-serif;
+            }
         }
+
+        
 
         .icon {
             height: 54px;

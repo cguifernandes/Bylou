@@ -66,7 +66,7 @@ const Products = () => {
 
         else {
             setNenhumResultado(false)
-            api.get("/").then(({ data }) => {
+            api.get(`/search/${value}`).then(({ data }) => {
                 setResponse(data)
             })
         }

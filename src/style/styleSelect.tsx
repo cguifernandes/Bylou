@@ -45,6 +45,7 @@ export const DropDown = styled.div`
 `;
 
 export const ListDropDown = styled.div`
+
     .faChevronRight {
         padding-right: 5px;
     }

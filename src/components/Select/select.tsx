@@ -7,12 +7,24 @@ const Menu = () => {
     const [active, setActive] = useState(false);
     const [selected, setSelected] = useState("");
 
-    console.log(active)
+    const facial = ["Limpeza de pele", "Tonificação", "Tratamento de pele", "Pós barba e pós depilação"];
+    const corporal = ["Sabonetes", "Massagem", "Hidratantes corporais", "Tratamentos específicos", "Desodorantes", "Pasta dental"]  
+    const capilar = ["Sólidos", "Líquidos"]  
     
-    function teste(e : any) {
-        setActive(false)
-        setSelected(e.target.textContent)
+    function ClickItem(e : any) {
+        setActive(false);
+        var text = e.target.textContent;
+        setSelected(text);
+        var index = text.indexOf(" ");
+
+        if (index !== -1) {
+            text = text.substring(0, index).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+        }
+        text = text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+        console.log(text)
     }
+    
+    
 
     return (  
         <Container>
@@ -23,25 +35,40 @@ const Menu = () => {
                 active && (
                     <DropDown>
                         <ListDropDown>
-                            <Item onClick={ (e) => teste(e)}>Facial</Item>
-                            <Item onClick={ (e) => teste(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Limpeza de pele</Item>
-                            <Item><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Tonificação</Item>
-                            <Item><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Tratamento de pele</Item>
-                            <Item><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Pós barba e pós depilação</Item>
+                            <Item onClick={ (e) => ClickItem(e)}>Facial</Item>
+                            <>
+                            {
+                                facial.map((f) => { 
+                                    return (
+                                        <Item onClick={(e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{f}</Item>
+                                    )
+                                })
+                            }
+                            </>
                             <Line></Line>
-                            <Item>Corporal</Item>
-                            <Item><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Sabonetes</Item>
-                            <Item><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Massagem</Item>
-                            <Item><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Hidratantes corporais</Item>
-                            <Item><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Tratamentos específicos</Item>
-                            <Item><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Desodorantes</Item>
-                            <Item><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Pasta dental</Item> 
+                            <Item onClick={ (e) => ClickItem(e)}>Corporal</Item>
+                            <>
+                            {
+                                corporal.map((c) => { 
+                                    return (
+                                        <Item onClick={ (e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{c}</Item>
+                                    )
+                                })
+                            }
+                            </> 
                             <Line></Line>
-                            <Item>Baby</Item>
+                            <Item onClick={ (e) => ClickItem(e)}>Baby</Item>
                             <Line></Line>
-                            <Item>Capilar</Item>
-                            <Item><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Sólidos</Item>
-                            <Item><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Líquidos</Item>
+                            <Item onClick={ (e) => ClickItem(e)}>Capilar</Item>
+                            <>
+                            {
+                                capilar.map((cc) => { 
+                                    return (
+                                        <Item onClick={ (e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{cc}</Item>
+                                    )
+                                })
+                            }
+                            </>
                         </ListDropDown>
                     </DropDown>
                 )

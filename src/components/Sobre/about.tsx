@@ -1,14 +1,19 @@
 import { Sobre, SText, SImg, SSection } from '../../style/styleAbout';
+import NatureAnimation from '../../assets/LottieJson/nature.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faDog, faEarth, faLeaf, faShield, faMicrochip, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 const About = () => {
     return (  
         <Sobre id='about'>
             <SImg>
-                <svg className='bloob' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#445F2C" d="M52.8,-66.1C65,-52.8,69,-32.8,71.7,-13.3C74.3,6.2,75.7,25.4,69.2,43C62.6,60.7,48.3,76.9,30.3,83.5C12.4,90.1,-9.1,87.1,-24.8,77.3C-40.4,67.6,-50.2,51.1,-57.1,35C-64,18.8,-68.1,3.1,-66.3,-12.5C-64.5,-28,-56.7,-43.2,-44.7,-56.5C-32.7,-69.8,-16.3,-81.3,2,-83.6C20.3,-86,40.7,-79.4,52.8,-66.1Z" transform="translate(100 100)" />
-                </svg>
+                <Player 
+                    src={NatureAnimation}
+                    loop
+                    autoplay
+                    className="player"
+                />
             </SImg>
             <SText>
                 <h2>Olá, tudo bem?</h2>

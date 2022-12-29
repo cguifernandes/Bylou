@@ -96,9 +96,10 @@ export const SText = styled.div`
 export const SImg = styled.div`
     width: 40%;
     flex: 1;
+    margin: 30px 0px;
 
-    .bloob {
-        width: 550px;  
+    .player {
+        width: 480px;  
         display: block;
         margin: 0 auto;
     }
@@ -107,14 +108,8 @@ export const SImg = styled.div`
         flex: 0;
     }
 
-    @media (max-width: 1310px) {
-        .bloob {
-            width: 450px;  
-        }
-    }
-
     @media (max-width: 1030px) {
-        .bloob {
+        .player {
             display: none;
         }
     }   
