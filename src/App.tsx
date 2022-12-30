@@ -1,14 +1,15 @@
 import Header from './components/Header/header';
-import Loading from './components/Loading/loading';
 import Products from './components/Products/products';
-import About from './components/Sobre/about';
+import About from './components/About/about';
+import Contato from './components/Contato/contato';
 
 function App() {
   return (
     <>
       <Header />
       <About />
-      <Loading />
+      <Products />
+      <Contato />
     </>
   );
 }

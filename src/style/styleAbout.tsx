@@ -23,6 +23,8 @@ export const SSection = styled.div`
         margin: 0px 30px;
         display: flex;  
         align-items: center;
+        border: 2px solid transparent;
+        transition: 0.4s all;
 
         h3 {
             color: var(--green2);
@@ -42,6 +44,10 @@ export const SSection = styled.div`
                 width: 90%;
             }
         }
+    }
+
+    .item:hover {
+        border: 2px solid var(--green2);
     }
 
     @media (max-width: 1310px) {

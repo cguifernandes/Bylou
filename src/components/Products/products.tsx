@@ -5,6 +5,7 @@ import api from '../../api'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Utils } from '../Utils/utils';
+import Loading from '../Loading/loading';
 
 export type TypeProdutos = {
     linha: "Facial" | "Corporal" | "Baby" | "Capilar",
@@ -24,14 +25,13 @@ type TypeValor = {
 }
 
 const Products = () => {
-
     const [response, setResponse] = useState<Array<TypeProdutos>>();
     const [nenhumResultado, setNenhumResultado] = useState(false);
     const [valores, setValores] = useState<Array<Array<TypeValor>>>();
 
     useEffect(() => {
         let listValor : any = [];
-        api.get('/').then(({ data }) => {
+        api.get('/baby').then(({ data }) => {
             setResponse(data)
         
             for (let i = 0; i < data.length; i++) {
@@ -66,9 +66,6 @@ const Products = () => {
 
         else {
             setNenhumResultado(false)
-            api.get(`/search/${value}`).then(({ data }) => {
-                setResponse(data)
-            })
         }
     }
 
@@ -85,12 +82,15 @@ const Products = () => {
                 </div>
             </Navegation>
             {
-                nenhumResultado ? 
-                <p className="nenhumResultado">Nenhum produto encontrado 😥!</p> 
+                response?.length === 0 && !nenhumResultado ?
+                <Loading />
                 :
-                response?.length !== 0
-                ? 
                 <Utils response={response} valores={valores} />
+            }
+
+            {
+                nenhumResultado ?
+                <p className="nenhumResultado">Nenhum produto encontrado 😥!</p> 
                 :
                 ""
             }

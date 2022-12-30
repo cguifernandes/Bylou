@@ -92,7 +92,7 @@ export const Card = styled.div`
 
 export const Navegation = styled.div`
     display: flex;
-    margin: 25px 0px;   
+    margin: 35px 0px;   
     justify-content: center;
 
     .search {
@@ -117,12 +117,13 @@ export const Navegation = styled.div`
 
             ::placeholder {
                 color: #fff;
-                opacity: 0.4;
                 font-family: 'Poppins', sans-serif;
             }
-        }
 
-        
+            ::-webkit-input-placeholder {
+                opacity: 0.4;
+            }
+        }
 
         .icon {
             height: 54px;

@@ -2,12 +2,32 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Container, Input, DropDown, ListDropDown, Item, Line } from '../../style/styleSelect'
 import { useState } from 'react';
+import api from '../../api'
 
-const Menu = () => {
+export type TypeProdutos = {
+    linha: "Facial" | "Corporal" | "Baby" | "Capilar",
+    subtitulo?: string,
+    nome: string,
+    Valor: Array<TypeValor>,
+    descricao: string,
+    disponibilidade: boolean,
+    sabor?: string,
+    alerta?: string
+}
+
+type TypeValor = {
+    volume?: number,
+    valor: string,
+    embalagem?: string
+}
+
+const Menu = (props : any) => {
     const [active, setActive] = useState(false);
     const [selected, setSelected] = useState("");
+    const [response, setResponse] = useState<Array<TypeProdutos>>();
+    const [valores, setValores] = useState<Array<Array<TypeValor>>>();
 
-    const facial = ["Limpeza de pele", "Tonificação", "Tratamento de pele", "Pós barba e pós depilação"];
+    const facial = ["Limpeza de pele", "Tonificação facial", "Tratamento de pele", "Pós barba e pós depilação"];
     const corporal = ["Sabonetes", "Massagem", "Hidratantes corporais", "Tratamentos específicos", "Desodorantes", "Pasta dental"]  
     const capilar = ["Sólidos", "Líquidos"]  
     
@@ -21,10 +41,20 @@ const Menu = () => {
             text = text.substring(0, index).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
         }
         text = text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-        console.log(text)
+
+        let listValor : any = [];
+        api.get(`/${text}`).then(({ data }) => {
+            setResponse(data);
+
+            for (let i = 0; i < data.length; i++) {
+                listValor.push(data[i].Valor)
+            }
+            setValores(listValor)
+        }).catch(error => {
+            console.log(error);
+        })
+
     }
-    
-    
 
     return (  
         <Container>
