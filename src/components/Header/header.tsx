@@ -54,7 +54,7 @@ const Header = () => {
                 <Ul ref={ul}>
                     <li ref={li1} className='li'><a href='#about'>Sobre</a></li>
                     <li ref={li2} className='li'><a href='#produtos'>Produtos</a></li>
-                    <li ref={li3} className='li'><a href='#'>Contato</a></li>
+                    <li ref={li3} className='li'><a href='#contato'>Contato</a></li>
                 </Ul>
                 <HeadNav ref={menuResponsive}>
                     <div className="line-1"></div>

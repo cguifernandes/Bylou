@@ -1,11 +1,12 @@
-import { SContato, Form, Cards, Card } from '../../style/styleContato';
+import { SContato, Form, Cards, Card, Email, Name, Telefone, Message, Button } from '../../style/styleContato';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faMessage, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
 
 const Contato = () => {
+    
     return (  
-        <SContato>
+        <SContato id='contato'>
             <h1>Contato</h1>
             <Cards>
                 <Card>
@@ -22,7 +23,25 @@ const Contato = () => {
                 </Card>
             </Cards>
             <Form method='POST'>
-
+                <input type="hidden" name="_next" value="tenho que fazeer isso" />
+                <input type="hidden" name="_autoresponse" value="Recebi sua mensagem, muito obrigado por entrar em contato! Responderei o mais rápido possível..." />
+                <Email>
+                    <input placeholder='' autoComplete='on' type="email" name="email" required></input>
+                    <label><FontAwesomeIcon className='icon' icon={faEnvelope} />E-mail</label>
+                </Email>
+                <Name>
+                    <input placeholder='' autoComplete="name" type="nome" name="nome" required></input>
+                    <label><FontAwesomeIcon className='icon' icon={faUser} />Nome</label>
+                </Name>
+                <Telefone>
+                    <input maxLength={12} placeholder='' type="tel" name="telefone" required/>
+                    <label><FontAwesomeIcon className='icon' icon={faPhone} />Telefone</label>
+                </Telefone>
+                <Message>
+                    <textarea maxLength={250} placeholder='' name="message" required></textarea>
+                    <label><FontAwesomeIcon className='icon' icon={faMessage} />Mensagem</label>
+                </Message>
+                <Button>Enviar</Button>
             </Form>
         </SContato>
     );

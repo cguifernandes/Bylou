@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Produtos = styled.section`
     h1 {
         text-align: center;
-        color: var(--green);
+        color: var(--green2);
     }
 
     h2 {
@@ -13,6 +13,7 @@ export const Produtos = styled.section`
         font-weight: normal;
         padding: 20px 0px;
     }
+    
     .nenhumResultado {
         text-align: center;
         grid-column-start: 1;
