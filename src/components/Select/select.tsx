@@ -55,53 +55,51 @@ const Menu = (props : any) => {
         })
     }
 
+    console.log(active)
+
     return (  
         <Container>
             <Input onClick={(e) => { setActive(!active) }}>
                 <p>{selected ? selected : "Filtros..."}</p><FontAwesomeIcon className='faChevronDown' icon={faChevronDown} />
             </Input>
-            {
-                active && (
-                    <DropDown>
-                        <ListDropDown>
-                            <Item onClick={ (e) => ClickItem(e)}>Facial</Item>
-                            <>
-                            {
-                                facial.map((f) => { 
-                                    return (
-                                        <Item onClick={(e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{f}</Item>
-                                    )
-                                })
-                            }
-                            </>
-                            <Line></Line>
-                            <Item onClick={ (e) => ClickItem(e)}>Corporal</Item>
-                            <>
-                            {
-                                corporal.map((c) => { 
-                                    return (
-                                        <Item onClick={ (e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{c}</Item>
-                                    )
-                                })
-                            }
-                            </> 
-                            <Line></Line>
-                            <Item onClick={ (e) => ClickItem(e)}>Baby</Item>
-                            <Line></Line>
-                            <Item onClick={ (e) => ClickItem(e)}>Capilar</Item>
-                            <>
-                            {
-                                capilar.map((cc) => { 
-                                    return (
-                                        <Item onClick={ (e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{cc}</Item>
-                                    )
-                                })
-                            }
-                            </>
-                        </ListDropDown>
-                    </DropDown>
-                )
-            }
+                <DropDown className={active ? "active" : ""}>
+                    <ListDropDown>
+                        <Item onClick={ (e) => ClickItem(e)}>Facial</Item>
+                        <>
+                        {
+                            facial.map((f) => { 
+                                return (
+                                    <Item onClick={(e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{f}</Item>
+                                )
+                            })
+                        }
+                        </>
+                        <Line></Line>
+                        <Item onClick={ (e) => ClickItem(e)}>Corporal</Item>
+                        <>
+                        {
+                            corporal.map((c) => { 
+                                return (
+                                    <Item onClick={ (e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{c}</Item>
+                                )
+                            })
+                        }
+                        </> 
+                        <Line></Line>
+                        <Item onClick={ (e) => ClickItem(e)}>Baby</Item>
+                        <Line></Line>
+                        <Item onClick={ (e) => ClickItem(e)}>Capilar</Item>
+                        <>
+                        {
+                            capilar.map((cc) => { 
+                                return (
+                                    <Item onClick={ (e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{cc}</Item>
+                                )
+                            })
+                        }
+                        </>
+                    </ListDropDown>
+                </DropDown>
         </Container>
     );
 }

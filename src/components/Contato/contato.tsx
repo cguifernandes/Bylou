@@ -4,7 +4,6 @@ import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faMessage, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
 
 const Contato = () => {
-    
     return (  
         <SContato id='contato'>
             <h1>Contato</h1>

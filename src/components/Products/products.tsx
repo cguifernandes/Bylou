@@ -31,7 +31,7 @@ const Products = () => {
 
     useEffect(() => {
         let listValor : any = [];
-        api.get('/baby').then(({ data }) => {
+        api.get('/').then(({ data }) => {
             setResponse(data)
         
             for (let i = 0; i < data.length; i++) {

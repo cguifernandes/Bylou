@@ -2,6 +2,12 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 45%;
+    display: block;
+    margin: 0 auto;
+    
+    .active {
+        opacity: 1;
+    }
 `;
 
 export const Input = styled.div`
@@ -42,10 +48,11 @@ export const DropDown = styled.div`
     position: absolute;
     z-index: 99;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    opacity: 0;
+    transition: 0.2s all;
 `;
 
 export const ListDropDown = styled.div`
-
     .faChevronRight {
         padding-right: 5px;
     }

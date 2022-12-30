@@ -23,70 +23,108 @@ export const Produtos = styled.section`
     }
 `;
 
+export const Title = styled.div`
+    padding: 15px;
+    background-color: var(--green);
+    border-radius: 10px 10px 0px 0px;
+
+    h3 {
+        text-align: center;
+        color: #fff;
+    }
+
+    h4 {
+        text-align: center;
+        color: #fff;
+    }
+
+    p {
+        padding-top: 5px;
+        text-align: center;
+        color: #fff;
+    }
+`;
+
+export const Text = styled.div`
+    padding: 15px;
+
+    p {
+        color: var(--green);
+        text-align: center;
+    }
+
+    .alert {
+        color: red;
+        font-weight: 500;
+    }
+`;
+
+export const Footer = styled.div`
+    position: absolute;
+    bottom: 0;
+    padding: 15px 0px;
+    background-color: var(--green);
+    border-radius: 0px 0px 10px 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+        color: #fff;
+        text-align: center;
+        margin: 0px 5px;
+    }
+
+    strong {
+        font-size: 20px;
+    }
+
+    button {
+    }
+`;
+
 export const Card = styled.div`
     height: 550px;
     background-color: var(--grey);
-    width: 92%;
+    width: 95%;
     border-radius: 10px;
     margin: 20px;
     position: relative;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
 
-    .title { 
-        padding: 15px;
-        background-color: var(--green);
-        border-radius: 10px 10px 0px 0px;
-
-        h3 {
-            text-align: center;
-            color: #fff;
-        }
-
-        h4 {
-            text-align: center;
-            color: #fff;
-        }
-
-        p {
-            padding-top: 5px;
-            text-align: center;
-            color: #fff;
-        }
-    }
-
-    .text {
-        padding: 15px;
-
-        p {
-            color: var(--green);
-            text-align: center;
-        }
-
-        .alert {
-            color: red;
-            font-weight: 500;
-        }
-    }
-
-    .footer {
+    .more {
         position: absolute;
-        bottom: 0;
-        padding: 15px 0px;
-        background-color: var(--green);
-        border-radius: 0px 0px 10px 10px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        bottom: 130px;
+        transform: translate(-50%, 0);
+        left: 50%;
+        opacity: 0;
+        transition: 0.4s all;
 
-        p {
-            color: #fff;
-            text-align: center;
-            margin: 0px 10px;
+        button {
+            padding: 15px;
+            width: 190px;
+            background-color: var(--grey);
+            color: var(--green);
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+            border: 0;
+            border: 2px solid var(--green);
+            cursor: pointer;
+            transition: 0.4s all;
         }
 
-        strong {
-            font-size: 20px;
+        button:hover {
+            box-shadow: inset 0 -3.95em 0 0 var(--green);
+            color: #fff;
+        }
+    }
+
+    &:hover {
+        .more {
+            opacity: 1;
         }
     }
 `;
@@ -155,5 +193,4 @@ export const Cards = styled.div`
     display: grid;
     justify-items: center;
     grid-template-columns: 33.33% 33.33% 33.33%;
-
 `;
