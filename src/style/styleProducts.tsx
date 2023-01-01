@@ -79,9 +79,6 @@ export const Footer = styled.div`
     strong {
         font-size: 20px;
     }
-
-    button {
-    }
 `;
 
 export const Card = styled.div`
@@ -114,6 +111,7 @@ export const Card = styled.div`
             border: 2px solid var(--green);
             cursor: pointer;
             transition: 0.4s all;
+            border-radius: 5px;
         }
 
         button:hover {

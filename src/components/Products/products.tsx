@@ -70,7 +70,11 @@ const Products = () => {
     }
 
     return (  
-        <Produtos id='produtos'>
+        <Produtos id='produtos'
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom" 
+        data-aos-duration="1200"
+        >
             <h1>Produtos</h1>
             <Navegation>
                 <div className="search">

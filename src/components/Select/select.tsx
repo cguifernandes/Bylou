@@ -55,8 +55,6 @@ const Menu = (props : any) => {
         })
     }
 
-    console.log(active)
-
     return (  
         <Container>
             <Input onClick={(e) => { setActive(!active) }}>

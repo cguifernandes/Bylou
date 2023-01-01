@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Cards, Card, Title, Text, Footer } from '../../style/styleProducts';
 
 export type TypeProdutos = {
@@ -18,9 +19,15 @@ type TypeValor = {
 }
 
 export function Utils(props : any) {
+    const [letras, setLetras] = useState(250);
+
     let j = -1;
     var Item = 
-        <Cards>
+        <Cards
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom" 
+        data-aos-duration="1200"
+        >
                 {
                     props.response?.map((produtos : any) => {
                         j++;
@@ -34,10 +41,12 @@ export function Utils(props : any) {
                                         }
                                     </Title>
                                     <Text>
-                                        <p>{produtos.descricao} ...Ver mais</p>
+                                        {
+                                            produtos.descricao.length >= letras ? <p>{produtos.descricao}<span>Ver mais</span></p> : <p>{produtos.descricao}</p>
+                                        }
                                         <p className='alert'>{produtos.alerta}</p>
                                         <div className='more'>
-                                            <button>Mais informações</button>
+                                            <a target="_blank" rel="noreferrer" href={`https://api.whatsapp.com/send?phone=5511975748332&text=Olá, gostei do produto (${produtos.nome}), você poderia me dar mais informações?`}><button>Mais informações</button></a>
                                         </div>
                                     </Text>
                                     <Footer>

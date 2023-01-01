@@ -5,7 +5,11 @@ import { faEnvelope, faMessage, faPhone, faUser } from '@fortawesome/free-solid-
 
 const Contato = () => {
     return (  
-        <SContato id='contato'>
+        <SContato 
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom" 
+        data-aos-duration="1200"
+        id='contato'>
             <h1>Contato</h1>
             <Cards>
                 <Card>
