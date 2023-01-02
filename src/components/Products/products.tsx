@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Produtos, Navegation, Pagination } from '../../style/styleProducts';
-import Select from '../Select/select'
 import api from '../../api'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Utils } from '../Utils/utils';
 import Loading from '../Loading/loading';
+import Filtros from '../Select/filtros';
+import Exibir from '../Select/exibir';
 
 export type TypeProdutos = {
     linha: "Facial" | "Corporal" | "Baby" | "Capilar",
@@ -31,7 +32,7 @@ const Products = () => {
     const [itensPerPage, setItensPerPage] = useState(10);
     const [currentPage, setCurrentPage] = useState(0);
     
-    const pages = Math.ceil(95 / itensPerPage);
+    const pages = Math.ceil(response?.length == null ? 95 : response?.length / itensPerPage);
     const startIndex = currentPage * itensPerPage;
     const endIndex = startIndex + itensPerPage;
     const currentItens = response?.slice(startIndex, endIndex);
@@ -49,7 +50,7 @@ const Products = () => {
         }).catch(error => {
             console.log(error);
         })
-    }, [itensPerPage])
+    }, [])
 
     function search(target : any) {
         const value = target.value;
@@ -89,13 +90,19 @@ const Products = () => {
                     <div className='icon'><FontAwesomeIcon icon={faSearch} /></div>
                 </div>
                 <div className="select">
-                    <Select />
+                    <Filtros />
+                    <Exibir itensPerPage={itensPerPage} setCurrentPage={setCurrentPage} setItensPerPage={setItensPerPage} />
                 </div>
             </Navegation>
             <Pagination>
-                {Array.from(Array(pages), (itens, index) => {
+                {
+                pages >= 10 ? 
+                Array.from(Array(pages), (itens, index) => {
                     return <button value={index} style={index === currentPage ? {backgroundColor: '#445F2C', color: "#fff"} : {backgroundColor: '#ebebeb'}} onClick={handleClick}>{index + 1}</button>
-                })}
+                }) 
+                : 
+                ""
+                }
             </Pagination>
             {
                 response?.length === 0 && !nenhumResultado ?

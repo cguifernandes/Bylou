@@ -58,6 +58,10 @@ export const Text = styled.div`
         color: red;
         font-weight: 500;
     }
+
+    strong {
+        cursor: pointer;
+    }
 `;
 
 export const Footer = styled.div`
@@ -83,7 +87,7 @@ export const Footer = styled.div`
 `;
 
 export const Card = styled(motion.div)`
-    height: 550px;
+    height: 675px;
     background-color: var(--grey);
     width: 95%;
     border-radius: 10px;
@@ -126,6 +130,10 @@ export const Card = styled(motion.div)`
             opacity: 1;
         }
     }
+
+    @media (max-width: 850px) {
+        height: 700px;
+    }
 `;
 
 export const Pagination = styled.div`
@@ -142,6 +150,7 @@ export const Pagination = styled.div`
         background-color: var(--grey);
         margin: 0px 5px;
         transition: 0.4s all;
+        cursor: pointer;
     }
 
     button:hover {
@@ -207,6 +216,7 @@ export const Navegation = styled.div`
 
     .select {
         width: 50%;
+        display: flex;
     }
 
     @media (max-width: 768px) {

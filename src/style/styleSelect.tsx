@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 100%;
+    width: 50%;
 `;
 
 export const Input = styled.div`
@@ -11,7 +11,7 @@ export const Input = styled.div`
     outline: 0;
     height: 54px;
     border-radius: 5px;
-    width: 60%;
+    width: 90%;
     color: #fff;
     font-size: 16px;
     display: flex;
@@ -36,7 +36,7 @@ export const Input = styled.div`
 
 export const DropDown = styled.div`
     background-color: var(--green);
-    width: 30%; 
+    width: 22.4%; 
     border-radius: 5px;
     color: #fff;
     margin-top: 5px;

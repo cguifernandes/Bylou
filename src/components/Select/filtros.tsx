@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Container, Input, DropDown, ListDropDown, Item, Line } from '../../style/styleSelect'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import api from '../../api'
 
 export type TypeProdutos = {
@@ -21,16 +21,18 @@ type TypeValor = {
     embalagem?: string
 }
 
-const Menu = (props : any) => {
+const Filtros = () => {
     const [active, setActive] = useState(false);
     const [selected, setSelected] = useState("");
     const [response, setResponse] = useState<Array<TypeProdutos>>();
     const [valores, setValores] = useState<Array<Array<TypeValor>>>();
+    
 
     const facial = ["Limpeza de pele", "Tonificação facial", "Tratamento de pele", "Pós barba e pós depilação"];
     const corporal = ["Sabonetes", "Massagem", "Hidratantes corporais", "Tratamentos específicos", "Desodorantes", "Pasta dental"]  
     const capilar = ["Sólidos", "Líquidos"]  
     
+
     function ClickItem(e : any) {
         setActive(false);
         var text = e.target.textContent;
@@ -43,6 +45,7 @@ const Menu = (props : any) => {
         text = text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 
         let listValor : any = [];
+        
         api.get(`/${text}`).then(({ data }) => {
             setResponse(data);
 
@@ -105,4 +108,4 @@ const Menu = (props : any) => {
     );
 }
  
-export default Menu;
+export default Filtros;

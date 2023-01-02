@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Cards, Card, Title, Text, Footer } from '../../style/styleProducts';
  
 export type TypeProdutos = {
@@ -18,14 +17,12 @@ type TypeValor = {
     embalagem?: string
 }
 
-export function Utils(props : any) {
-    const [letras, setLetras] = useState(250);
-    
+export function Utils({response, valores} : any) {
     let j = -1;
     var Item = 
         <Cards>
                 {
-                    props.response?.map((produtos : any) => {
+                    response?.map((produtos : any) => {
                         j++;
                         return (
                             <Card 
@@ -42,9 +39,7 @@ export function Utils(props : any) {
                                         }
                                     </Title>
                                     <Text>
-                                        {
-                                            produtos.descricao.length >= letras ? <p>{produtos.descricao}<span>Ver mais</span></p> : <p>{produtos.descricao}</p>
-                                        }
+                                        <p>{produtos.descricao}</p>
                                         <p className='alert'>{produtos.alerta}</p>
                                         <div className='more'>
                                             <a target="_blank" rel="noreferrer" href={`https://api.whatsapp.com/send?phone=5511975748332&text=Olá, gostei do produto (${produtos.nome}), você poderia me dar mais informações?`}><button>Mais informações</button></a>
@@ -52,7 +47,7 @@ export function Utils(props : any) {
                                     </Text>
                                     <Footer>
                                         {
-                                            props.valores?.[j].map((objeto : any) => {
+                                            valores?.[j].map((objeto : any) => {
                                                 return (
                                                     <div style={{ margin: "0 auto" }}>
                                                         {objeto.volume ? <p>{objeto.volume}</p> : <p>Este produto não tem volume.</p>}
