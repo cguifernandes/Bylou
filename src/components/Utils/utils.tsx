@@ -30,7 +30,7 @@ export function Utils({response, valores} : any) {
                             whileInView={{ opacity: 1, 
                             transition: { duration: 0.4 }}}
                             viewport={{ once: true }} 
-                            key={j}>
+                            key={produtos.nome}>
                                     <Title>
                                         <h3>{produtos.nome}</h3>
                                         <h4>{produtos.sabor}</h4>
@@ -49,7 +49,7 @@ export function Utils({response, valores} : any) {
                                         {
                                             valores?.[j].map((objeto : any) => {
                                                 return (
-                                                    <div style={{ margin: "0 auto" }}>
+                                                    <div key={objeto.valor} style={{ margin: "0 auto" }}>
                                                         {objeto.volume ? <p>{objeto.volume}</p> : <p>Este produto não tem volume.</p>}
                                                         <p><strong>{objeto.valor}</strong></p>
                                                         {objeto.embalagem ? <p>Embalagem: {objeto.embalagem}</p> : ""}

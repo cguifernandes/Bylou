@@ -7,6 +7,7 @@ import { Utils } from '../Utils/utils';
 import Loading from '../Loading/loading';
 import Filtros from '../Select/filtros';
 import Exibir from '../Select/exibir';
+import { useLocation } from 'react-router-dom';
 
 export type TypeProdutos = {
     linha: "Facial" | "Corporal" | "Baby" | "Capilar",
@@ -26,6 +27,9 @@ type TypeValor = {
 }
 
 const Products = () => {
+    const location = useLocation();
+    const name = location.search.split("?")[1]
+    
     const [response, setResponse] = useState<Array<TypeProdutos>>();
     const [nenhumResultado, setNenhumResultado] = useState(false);
     const [valores, setValores] = useState<Array<Array<TypeValor>>>();
@@ -39,7 +43,7 @@ const Products = () => {
 
     useEffect(() => {
         let listValor : any = [];
-        api.get('/').then(({ data }) => {
+        api.get(`/${name == null ? "" : name}`).then(({ data }) => {
             setResponse(data)
 
             for (let i = 0; i < data.length; i++) {
@@ -50,7 +54,7 @@ const Products = () => {
         }).catch(error => {
             console.log(error);
         })
-    }, [])
+    }, [name])
 
     function search(target : any) {
         const value = target.value;
@@ -90,22 +94,22 @@ const Products = () => {
                     <div className='icon'><FontAwesomeIcon icon={faSearch} /></div>
                 </div>
                 <div className="select">
-                    <Filtros />
+                    <Filtros setCurrentPage={setCurrentPage} />
                     <Exibir itensPerPage={itensPerPage} setCurrentPage={setCurrentPage} setItensPerPage={setItensPerPage} />
                 </div>
             </Navegation>
             <Pagination>
                 {
-                pages >= 10 ? 
-                Array.from(Array(pages), (itens, index) => {
-                    return <button value={index} style={index === currentPage ? {backgroundColor: '#445F2C', color: "#fff"} : {backgroundColor: '#ebebeb'}} onClick={handleClick}>{index + 1}</button>
-                }) 
-                : 
-                ""
+                    pages === 0 ?
+                    <Loading />
+                    :
+                    Array.from(Array(pages), (itens, index) => {
+                        return <button key={index} value={index} style={index === currentPage ? {backgroundColor: '#445F2C', color: "#fff"} : {backgroundColor: '#ebebeb'}} onClick={handleClick}>{index + 1}</button>
+                    }) 
                 }
             </Pagination>
             {
-                response?.length === 0 && !nenhumResultado ?
+                response?.length === 0 ?
                 <Loading />
                 :
                 <Utils response={currentItens} valores={valores} />

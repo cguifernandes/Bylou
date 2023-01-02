@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Container, Input, DropDown, ListDropDown, Item, Line } from '../../style/styleSelect'
-import { useEffect, useState } from 'react';
-import api from '../../api'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export type TypeProdutos = {
     linha: "Facial" | "Corporal" | "Baby" | "Capilar",
@@ -21,41 +21,15 @@ type TypeValor = {
     embalagem?: string
 }
 
-const Filtros = () => {
+const Filtros = ({setCurrentPage} : any) => {
     const [active, setActive] = useState(false);
     const [selected, setSelected] = useState("");
-    const [response, setResponse] = useState<Array<TypeProdutos>>();
-    const [valores, setValores] = useState<Array<Array<TypeValor>>>();
-    
 
-    const facial = ["Limpeza de pele", "Tonificação facial", "Tratamento de pele", "Pós barba e pós depilação"];
-    const corporal = ["Sabonetes", "Massagem", "Hidratantes corporais", "Tratamentos específicos", "Desodorantes", "Pasta dental"]  
-    const capilar = ["Sólidos", "Líquidos"]  
-    
-
-    function ClickItem(e : any) {
+    function handleClick(e : any) {
         setActive(false);
         var text = e.target.textContent;
-        setSelected(text);
-        var index = text.indexOf(" ");
-
-        if (index !== -1) {
-            text = text.substring(0, index).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-        }
-        text = text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-
-        let listValor : any = [];
-        
-        api.get(`/${text}`).then(({ data }) => {
-            setResponse(data);
-
-            for (let i = 0; i < data.length; i++) {
-                listValor.push(data[i].Valor)
-            }
-            setValores(listValor)
-        }).catch(error => {
-            console.log(error);
-        })
+        setSelected(text);  
+        setCurrentPage(0);
     }
 
     return (  
@@ -67,40 +41,25 @@ const Filtros = () => {
                 active && 
                 <DropDown>
                     <ListDropDown>
-                        <Item onClick={ (e) => ClickItem(e)}>Facial</Item>
-                        <>
-                        {
-                            facial.map((f) => { 
-                                return (
-                                    <Item onClick={(e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{f}</Item>
-                                )
-                            })
-                        }
-                        </>
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?facial"}>Facial</Link></Item>
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?limpeza"}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Limpeza de pele</Link></Item>
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?tonificacao"}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Tonificação facial</Link></Item>
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?tratamento"}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Tratamento de pele</Link></Item>
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?pos"}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Pós barba e pós depilação</Link></Item>
                         <Line></Line>
-                        <Item onClick={ (e) => ClickItem(e)}>Corporal</Item>
-                        <>
-                        {
-                            corporal.map((c) => { 
-                                return (
-                                    <Item onClick={ (e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{c}</Item>
-                                )
-                            })
-                        }
-                        </> 
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?corporal"}>Corporal</Link></Item>
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?sabonetes"}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Sabonetes</Link></Item>
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?massagem"}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Massagem</Link></Item>
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?hidratantes"}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Hidratantes corporais</Link></Item>
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?tratamentos"}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Tratamentos específicos</Link></Item>
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?desodorantes"}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Desodorantes</Link></Item>
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?pasta"}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Pasta dental</Link></Item>
                         <Line></Line>
-                        <Item onClick={ (e) => ClickItem(e)}>Baby</Item>
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?baby"}>Baby</Link></Item>
                         <Line></Line>
-                        <Item onClick={ (e) => ClickItem(e)}>Capilar</Item>
-                        <>
-                        {
-                            capilar.map((cc) => { 
-                                return (
-                                    <Item onClick={ (e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{cc}</Item>
-                                )
-                            })
-                        }
-                        </>
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?capilar"}>Capilar</Link></Item>
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?solidos"}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Sólidos</Link></Item>
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?liquidos"}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Líquidos</Link></Item>
                     </ListDropDown>
                 </DropDown>
             }

@@ -29,8 +29,9 @@ export const Input = styled.div`
         }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1380px) {
         margin: 0 auto;
+        width: 70%;
     }
 `;
 
@@ -48,13 +49,53 @@ export const DropDown = styled.div`
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: 0.2s all;
 
-    @media (max-width: 768px) {
-        left: 50%;
-        transform: translate(-50%, 0);
+    @media (max-width: 1380px) {
+        left: 6.4%;
+        width: 35%;
+    }
+
+    @media (max-width: 1000px) {
+        left: 6%;
     }
 
     @media (max-width: 768px) {
-        width: 60%;
+        left: 5.4%;
+    }
+
+    @media (max-width: 400px) {
+        left: 4%;
+    }
+`;
+
+export const EDropDown = styled.div`
+    background-color: var(--green);
+    width: 22.4%; 
+    border-radius: 5px;
+    color: #fff;
+    margin-top: 5px;
+    height: 225px;
+    overflow: auto;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 99;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.2s all;
+
+    @media (max-width: 1380px) {
+        width: 35%;
+        left: 56.4%;
+    }
+
+    @media (max-width: 1000px) {
+        left: 56%;
+    }
+
+    @media (max-width: 768px) {
+        left: 55.5%;
+    }
+
+    @media (max-width: 400px) {
+        left: 54%;
     }
 `;
 
@@ -68,6 +109,11 @@ export const ListDropDown = styled.div`
         height: 1px;
         background-color: #ebebeb7c;
     } 
+
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
 `;
 
 export const Line = styled.div`
@@ -80,7 +126,7 @@ export const Item = styled.div`
     padding: 8px 0px;
     width: 100%;
     cursor: pointer;
-    transition: 0.3s all;
+    transition: 0.4s all;
 
     &:hover {
         padding-left: 4px;

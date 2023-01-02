@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { Container, Input, DropDown, ListDropDown, Item } from '../../style/styleSelect'
+import { Container, Input, EDropDown, ListDropDown, Item } from '../../style/styleSelect'
 import { useEffect, useState } from 'react';
 
 const Exibir = ({setItensPerPage, setCurrentPage, itensPerPage} : any) => {
@@ -25,14 +25,14 @@ const Exibir = ({setItensPerPage, setCurrentPage, itensPerPage} : any) => {
             </Input>
             {
                 active && 
-                <DropDown style={{height: "164px"}}>
+                <EDropDown style={{height: "164px"}}>
                     <ListDropDown>
                         <Item onClick={(e) => ClickItem(e, 10)}>10 por página</Item>
                         <Item onClick={(e) => ClickItem(e, 15)}>15 por página</Item>
                         <Item onClick={(e) => ClickItem(e, 20)}>20 por página</Item>
                         <Item onClick={(e) => ClickItem(e, 25)}>25 por página</Item>
                     </ListDropDown>
-                </DropDown>
+                </EDropDown>
             }
         </Container>
     );

@@ -219,7 +219,7 @@ export const Navegation = styled.div`
         display: flex;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1380px) {
         flex-wrap: wrap;
 
         .search, .select {
@@ -236,6 +236,10 @@ export const Navegation = styled.div`
                 width: 80%;
             }
         }
+    }
+
+    @media (max-width: 768px) {
+        
     }
 `;
 
