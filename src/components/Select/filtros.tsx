@@ -41,6 +41,8 @@ const Filtros = ({setCurrentPage} : any) => {
                 active && 
                 <DropDown>
                     <ListDropDown>
+                        <Item><Link onClick={(e) => handleClick(e)} to={"/"}>Todos</Link></Item>
+                        <Line></Line>
                         <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?facial"}>Facial</Link></Item>
                         <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?limpeza"}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Limpeza de pele</Link></Item>
                         <Item><Link onClick={(e) => handleClick(e)} to={"/filtros?tonificacao"}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />Tonificação facial</Link></Item>
