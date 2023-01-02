@@ -29,6 +29,10 @@ export const Button = styled.button`
         box-shadow: inset 0 -3.95em 0 0 var(--green);
         color: #fff
     }
+
+    @media (max-width: 768px) {
+        width: 45%;
+    }
 `;
 
 export const Form = styled.form`
