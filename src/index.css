@@ -11,6 +11,10 @@
   --green: #445F2C;
 }
 
+h1 {
+  font-size: 28px;
+}
+
 @import url('https://fonts.cdnfonts.com/css/poppins');
 
 body {

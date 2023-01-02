@@ -60,44 +60,47 @@ const Menu = (props : any) => {
             <Input onClick={(e) => { setActive(!active) }}>
                 <p>{selected ? selected : "Filtros..."}</p><FontAwesomeIcon className='faChevronDown' icon={faChevronDown} />
             </Input>
-                <DropDown className={active ? "active" : ""}>
+            {
+                active && 
+                <DropDown>
                     <ListDropDown>
-                        <Item className={active ? "listActive" : ""} onClick={ (e) => ClickItem(e)}>Facial</Item>
+                        <Item onClick={ (e) => ClickItem(e)}>Facial</Item>
                         <>
                         {
                             facial.map((f) => { 
                                 return (
-                                    <Item className={active ? "listActive" : ""} onClick={(e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{f}</Item>
+                                    <Item onClick={(e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{f}</Item>
                                 )
                             })
                         }
                         </>
                         <Line></Line>
-                        <Item className={active ? "listActive" : ""} onClick={ (e) => ClickItem(e)}>Corporal</Item>
+                        <Item onClick={ (e) => ClickItem(e)}>Corporal</Item>
                         <>
                         {
                             corporal.map((c) => { 
                                 return (
-                                    <Item className={active ? "listActive" : ""} onClick={ (e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{c}</Item>
+                                    <Item onClick={ (e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{c}</Item>
                                 )
                             })
                         }
                         </> 
                         <Line></Line>
-                        <Item className={active ? "listActive" : ""} onClick={ (e) => ClickItem(e)}>Baby</Item>
+                        <Item onClick={ (e) => ClickItem(e)}>Baby</Item>
                         <Line></Line>
-                        <Item className={active ? "listActive" : ""} onClick={ (e) => ClickItem(e)}>Capilar</Item>
+                        <Item onClick={ (e) => ClickItem(e)}>Capilar</Item>
                         <>
                         {
                             capilar.map((cc) => { 
                                 return (
-                                    <Item className={active ? "listActive" : ""} onClick={ (e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{cc}</Item>
+                                    <Item onClick={ (e) => ClickItem(e)}><FontAwesomeIcon className='faChevronRight' icon={faChevronRight} />{cc}</Item>
                                 )
                             })
                         }
                         </>
                     </ListDropDown>
                 </DropDown>
+            }
         </Container>
     );
 }

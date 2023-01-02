@@ -47,7 +47,7 @@ export const Form = styled.form`
         color: var(--green);
         position: absolute;
         pointer-events: none;
-        left: 15px;
+        left: 20px;
         transform: translateY(27px);
         transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
     }

@@ -128,6 +128,28 @@ export const Card = styled(motion.div)`
     }
 `;
 
+export const Pagination = styled.div`
+    text-align: center;
+    margin: 10px 0px;
+
+    button {
+        outline: 0;
+        border: 0;
+        font-size: 16px;
+        font-family: 'Poppins', sans-serif;
+        width: 42px;
+        height: 42px;
+        background-color: var(--grey);
+        margin: 0px 5px;
+        transition: 0.4s all;
+    }
+
+    button:hover {
+        box-shadow: inset 0 -3.95em 0 0 var(--green);
+        color: #fff;
+    }
+`;
+
 export const Navegation = styled.div`
     display: flex;
     margin: 35px 0px;   

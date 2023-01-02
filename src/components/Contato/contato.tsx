@@ -38,7 +38,7 @@ const Contato = () => {
                     <label><FontAwesomeIcon className='icon' icon={faUser} />Nome</label>
                 </Input>
                 <Input>
-                    <input maxLength={12} placeholder='' type="tel" name="telefone" required/>
+                    <input autoComplete='false' maxLength={12} placeholder='' type="tel" name="telefone" required/>
                     <label><FontAwesomeIcon className='icon' icon={faPhone} />Telefone</label>
                 </Input>
                 <Input>

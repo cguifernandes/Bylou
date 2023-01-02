@@ -2,14 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 100%;
-
-    .active {
-        opacity: 1;
-    }
-
-    .listActive {
-        cursor: pointer;
-    }
 `;
 
 export const Input = styled.div`
@@ -54,7 +46,6 @@ export const DropDown = styled.div`
     position: absolute;
     z-index: 99;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    opacity: 0;
     transition: 0.2s all;
 
     @media (max-width: 768px) {
@@ -88,7 +79,7 @@ export const Line = styled.div`
 export const Item = styled.div`
     padding: 8px 0px;
     width: 100%;
-    cursor: default;
+    cursor: pointer;
     transition: 0.3s all;
 
     &:hover {

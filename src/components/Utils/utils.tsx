@@ -20,7 +20,7 @@ type TypeValor = {
 
 export function Utils(props : any) {
     const [letras, setLetras] = useState(250);
-
+    
     let j = -1;
     var Item = 
         <Cards>
