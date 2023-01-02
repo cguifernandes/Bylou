@@ -148,7 +148,7 @@ export const Pagination = styled.div`
         width: 42px;
         height: 42px;
         background-color: var(--grey);
-        margin: 0px 5px;
+        margin: 10px 5px;
         transition: 0.4s all;
         cursor: pointer;
     }
@@ -236,10 +236,6 @@ export const Navegation = styled.div`
                 width: 80%;
             }
         }
-    }
-
-    @media (max-width: 768px) {
-        
     }
 `;
 
