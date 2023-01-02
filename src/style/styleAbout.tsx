@@ -64,9 +64,18 @@ export const SSection = styled.div`
     @media (max-width: 768px) {
         grid-template-columns: 50% 50%;
         justify-items: center;
+        gap: 0px 10px 10px 0px;
 
         .item {
             width: 90%;
+        }
+    }
+
+    @media (max-width: 510px) {
+        grid-template-columns: 100%;
+
+        .item {
+            width: 65%;
         }
     }
 `;

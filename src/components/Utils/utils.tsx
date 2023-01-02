@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Cards, Card, Title, Text, Footer } from '../../style/styleProducts';
-
+ 
 export type TypeProdutos = {
     linha: "Facial" | "Corporal" | "Baby" | "Capilar",
     subtitulo?: string,
@@ -23,16 +23,17 @@ export function Utils(props : any) {
 
     let j = -1;
     var Item = 
-        <Cards
-        data-aos="fade-up"
-        data-aos-anchor-placement="center-bottom" 
-        data-aos-duration="1200"
-        >
+        <Cards>
                 {
                     props.response?.map((produtos : any) => {
                         j++;
                         return (
-                            <Card key={j}>
+                            <Card 
+                            initial={{ opacity: 0}} 
+                            whileInView={{ opacity: 1, 
+                            transition: { duration: 0.4 }}}
+                            viewport={{ once: true }} 
+                            key={j}>
                                     <Title>
                                         <h3>{produtos.nome}</h3>
                                         <h4>{produtos.sabor}</h4>

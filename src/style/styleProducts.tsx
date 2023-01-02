@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from 'framer-motion';
 
 export const Produtos = styled.section`
     h1 {
@@ -77,11 +78,11 @@ export const Footer = styled.div`
     }
 
     strong {
-        font-size: 20px;
+        font-size: 17px;
     }
 `;
 
-export const Card = styled.div`
+export const Card = styled(motion.div)`
     height: 550px;
     background-color: var(--grey);
     width: 95%;
@@ -185,10 +186,37 @@ export const Navegation = styled.div`
     .select {
         width: 50%;
     }
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+
+        .search, .select {
+            width: 100%;
+            margin: 10px 0px;
+        }
+
+        .search {
+            .icon {
+                right: 8%;
+            }
+
+            input {
+                width: 80%;
+            }
+        }
+    }
 `;
 
 export const Cards = styled.div`
     display: grid;
     justify-items: center;
     grid-template-columns: 33.33% 33.33% 33.33%;
+
+    @media (max-width: 1280px) {
+        grid-template-columns: 50% 50%;
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 100%;
+    }
 `;

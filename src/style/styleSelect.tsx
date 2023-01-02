@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 45%;
-    display: block;
-    margin: 0 auto;
-    
+    width: 100%;
+
     .active {
         opacity: 1;
+    }
+
+    .listActive {
+        cursor: pointer;
     }
 `;
 
@@ -17,7 +19,7 @@ export const Input = styled.div`
     outline: 0;
     height: 54px;
     border-radius: 5px;
-    width: 100%;
+    width: 60%;
     color: #fff;
     font-size: 16px;
     display: flex;
@@ -34,11 +36,15 @@ export const Input = styled.div`
             transform: rotate(90deg);
         }
     }
+
+    @media (max-width: 768px) {
+        margin: 0 auto;
+    }
 `;
 
 export const DropDown = styled.div`
     background-color: var(--green);
-    width: 22.5%; 
+    width: 30%; 
     border-radius: 5px;
     color: #fff;
     margin-top: 5px;
@@ -50,6 +56,15 @@ export const DropDown = styled.div`
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     opacity: 0;
     transition: 0.2s all;
+
+    @media (max-width: 768px) {
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    @media (max-width: 768px) {
+        width: 60%;
+    }
 `;
 
 export const ListDropDown = styled.div`
@@ -73,7 +88,7 @@ export const Line = styled.div`
 export const Item = styled.div`
     padding: 8px 0px;
     width: 100%;
-    cursor: pointer;
+    cursor: default;
     transition: 0.3s all;
 
     &:hover {

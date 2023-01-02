@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from 'framer-motion';
 
-export const SContato = styled.section`
+export const SContato = styled(motion.div)`
     h1 {
         color: var(--green2);
         text-align: center;
@@ -34,6 +35,7 @@ export const Form = styled.form`
     width: 80%;
     margin: 35px auto;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 
     .icon {
@@ -91,39 +93,36 @@ export const Form = styled.form`
         background-color: var(--grey);
         padding: 0px 15px;
     }
-
 `;
 
-export const Email = styled.div`
-    width: 100%;
+export const Input = styled.div`
+    width: 95%;
     position: relative;
-`;
-
-export const Name = styled.div`
-    width: 100%;
-    position: relative;
-`;
-
-export const Telefone = styled.div`
-    width: 100%;
-    position: relative;
-`;
-
-export const Message = styled.div`
-    width: 100%;
-    position: relative;
+    display: flex;
+    justify-content: center;
 `;
 
 export const Cards = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto;
     justify-content: center;
+    gap: 15px;
+
+    @media (max-width: 1020px) {
+        grid-template-columns: 50% 50%;
+        gap: 10px 0px;
+    }   
+
+    @media (max-width: 768px) {
+        grid-template-columns: 100%;
+    }
 `;
 
 export const Card = styled.div`
     width: 255px;
     background-color: var(--grey);
     padding: 15px;
-    margin: 0px 30px;
+    margin: 0px auto;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -151,5 +150,13 @@ export const Card = styled.div`
 
     &:hover {
         border: 2px solid var(--green2);
+    }
+
+    @media (max-width: 1020px) {
+        width: 65%;
+    }    
+    
+    @media (max-width: 768px) {
+        width: 75%;
     }
 `;

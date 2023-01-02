@@ -6,11 +6,7 @@ import { Player } from '@lottiefiles/react-lottie-player';
 
 const About = () => {
     return (  
-        <Sobre 
-        data-aos="fade-up"
-        data-aos-anchor-placement="center-bottom" 
-        data-aos-duration="1200"
-        id='about'>
+        <Sobre id='about'>
             <SImg>
                 <Player 
                     src={NatureAnimation}
