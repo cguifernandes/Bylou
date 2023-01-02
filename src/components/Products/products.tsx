@@ -104,7 +104,7 @@ const Products = () => {
                     <Loading />
                     :
                     Array.from(Array(pages), (itens, index) => {
-                        return <button key={index} value={index} style={index === currentPage ? {backgroundColor: '#445F2C', color: "#fff"} : {backgroundColor: '#ebebeb'}} onClick={handleClick}>{index + 1}</button>
+                        return <button key={index} value={index} style={index === currentPage ? {backgroundColor: '#445F2C', color: "#fff"} : {backgroundColor: '#ebebeb', color: "#000"}} onClick={handleClick}>{index + 1}</button>
                     }) 
                 }
             </Pagination>
