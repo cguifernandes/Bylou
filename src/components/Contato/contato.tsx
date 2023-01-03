@@ -26,8 +26,8 @@ const Contato = () => {
                     <a href='https://www.instagram.com/byloucosmetics/'>@byloucosmetics</a>
                 </Card>
             </Cards>
-            <Form method='POST'>
-                <input type="hidden" name="_next" value="tenho que fazeer isso" />
+            <Form action='https://formsubmit.co/louipharma@yahoo.com.br' method='POST'>
+                <input type="hidden" name="_next" value="https://bylou.vercel.app/#contato" />
                 <input type="hidden" name="_autoresponse" value="Recebi sua mensagem, muito obrigado por entrar em contato! Responderei o mais rápido possível..." />
                 <Input>
                     <input placeholder='' autoComplete='on' type="email" name="email" required></input>

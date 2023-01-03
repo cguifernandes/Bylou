@@ -155,7 +155,7 @@ export const Pagination = styled.div`
 
     button:hover {
         box-shadow: inset 0 -3.95em 0 0 var(--green);
-        color: #fff;
+        color: #fff !important;
     }
 `;
 
