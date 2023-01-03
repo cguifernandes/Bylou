@@ -109,7 +109,7 @@ const Products = () => {
                 }
             </Pagination>
             {
-                response?.length === 0 ?
+                response?.length === 0 && !nenhumResultado ?
                 <Loading />
                 :
                 <Utils response={currentItens} valores={valores} />
