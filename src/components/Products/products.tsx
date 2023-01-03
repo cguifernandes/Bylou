@@ -4,7 +4,6 @@ import api from '../../api'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Utils } from '../Utils/utils';
-import Loading from '../Loading/loading';
 import Filtros from '../Select/filtros';
 import Exibir from '../Select/exibir';
 import { useLocation } from 'react-router-dom';
@@ -57,6 +56,7 @@ const Products = () => {
     }, [name])
 
     function search(target : any) {
+        setCurrentPage(0)
         const value = target.value;
         let searchCard : any = [];
         if (value !== "") {
@@ -78,6 +78,12 @@ const Products = () => {
 
         else {
             setNenhumResultado(false)
+            api.get("/").then(({ data }) => {
+                setResponse(data)
+
+            }).catch(error => {
+                console.log(error);
+            })
         }
     }
 
@@ -100,27 +106,27 @@ const Products = () => {
             </Navegation>
             <Pagination>
                 {
-                    pages === 0 ?
-                    <Loading />
-                    :
                     Array.from(Array(pages), (itens, index) => {
                         return <button key={index} value={index} style={index === currentPage ? {backgroundColor: '#445F2C', color: "#fff"} : {backgroundColor: '#ebebeb', color: "#000"}} onClick={handleClick}>{index + 1}</button>
                     }) 
                 }
             </Pagination>
-            {
-                response?.length === 0 && !nenhumResultado ?
-                <Loading />
-                :
+            <>
                 <Utils response={currentItens} valores={valores} />
-            }
+                {
+                    response?.length === 0 && nenhumResultado === false ?
+                    console.log("saim")
+                    :
+                    console.log("nao")
+                }
 
-            {
-                nenhumResultado ?
-                <p className="nenhumResultado">Nenhum produto encontrado 😥!</p> 
-                :
-                ""
-            }
+                {
+                    nenhumResultado ?
+                    <p className="nenhumResultado">Nenhum produto encontrado 😥!</p> 
+                    :
+                    ""
+                }
+            </>
         </Produtos>
     );
 }
