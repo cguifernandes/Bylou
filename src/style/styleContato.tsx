@@ -86,7 +86,11 @@ export const Form = styled.form`
     }
 
     textarea:focus, input:focus {
-        border: 2px solid var(--green2);
+        border: 2px solid var(--green2) !important;
+    }
+
+    input:invalid {
+        border-color: red !important;
     }
 
     input:focus ~ label,

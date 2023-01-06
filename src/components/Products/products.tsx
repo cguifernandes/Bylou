@@ -111,22 +111,13 @@ const Products = () => {
                     }) 
                 }
             </Pagination>
-            <>
-                <Utils response={currentItens} valores={valores} />
-                {
-                    response?.length === 0 && nenhumResultado === false ?
-                    console.log("saim")
-                    :
-                    console.log("nao")
-                }
-
-                {
-                    nenhumResultado ?
-                    <p className="nenhumResultado">Nenhum produto encontrado 😥!</p> 
-                    :
-                    ""
-                }
-            </>
+            <Utils response={currentItens} valores={valores} />
+            {
+                nenhumResultado ?
+                <p className="nenhumResultado">Nenhum produto encontrado 😥!</p> 
+                :
+                ""
+            }
         </Produtos>
     );
 }
