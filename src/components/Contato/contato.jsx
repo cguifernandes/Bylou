@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faMessage, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
+import { IMaskInput } from "react-imask";
 
 const Contato = () => {
     const [name, setName] = useState('');
@@ -10,7 +11,7 @@ const Contato = () => {
     const [telefone, setTelefone] = useState('');
     const [message, setMessage] = useState('');
 
-    function sendEmail(e : any) {
+    function sendEmail(e) {
         e.preventDefault();
 
         if (name === "") {
@@ -60,7 +61,8 @@ const Contato = () => {
                     placeholder='' 
                     autoComplete='on' 
                     type="email" 
-                    name="email" />
+                    name="email" 
+                    />
                     <label><FontAwesomeIcon className='icon' icon={faEnvelope} />E-mail</label>
                 </Input>
                 <Input>
@@ -70,19 +72,20 @@ const Contato = () => {
                     placeholder='' 
                     autoComplete="name" 
                     type="nome" 
-                    name="nome" />
+                    name="nome" 
+                    />
                     <label><FontAwesomeIcon className='icon' icon={faUser} />Nome</label>
                 </Input>
                 <Input>
-                    <input 
+                    <IMaskInput
                     style={telefone === "vazio" ? {borderColor: "red"} : {borderColor: "transparent"}} 
                     onChange={(e) => setTelefone(e.target.value)} 
                     autoComplete='false' 
-                    maxLength={12} 
+                    mask="+55 (00) 00000-0000"
                     placeholder='' 
-                    pattern="[0-9]+$"
                     type="tel" 
-                    name="telefone"/>
+                    name="telefone"
+                    />
                     <label><FontAwesomeIcon className='icon' icon={faPhone} />Telefone</label>
                 </Input>
                 <Input>
@@ -91,7 +94,8 @@ const Contato = () => {
                     onChange={(e) => setMessage(e.target.value)} 
                     maxLength={250} 
                     placeholder='' 
-                    name="message" />
+                    name="message" 
+                    />
                     <label><FontAwesomeIcon className='icon' icon={faMessage} />Mensagem</label>
                 </Input>
                 <Button>Enviar</Button>
