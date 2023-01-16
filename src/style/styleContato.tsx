@@ -101,6 +101,10 @@ export const Form = styled.form`
         background-color: var(--grey);
         padding: 0px 15px;
     }
+
+    @media (max-width: 768px) {
+        width: 90%;
+    }
 `;
 
 export const Input = styled.div`
@@ -165,6 +169,6 @@ export const Card = styled.div`
     }    
     
     @media (max-width: 768px) {
-        width: 75%;
+        width: 85%;
     }
 `;

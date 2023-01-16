@@ -18,6 +18,7 @@ type TypeValor = {
 }
 
 export function Utils({response, valores} : any) {
+
     let j = -1;
     var Item = 
         <Cards>
