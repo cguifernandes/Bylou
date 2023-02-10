@@ -12,26 +12,11 @@ const Contato = () => {
     const [telefone, setTelefone] = useState('');
     const [message, setMessage] = useState('');
 
-    function sendEmail(e) {
-        e.preventDefault();
-
-        const templeteParams = {
-            name: name,
-            telefone: telefone,
-            email: email,
-            message: message
-        }
-
-        emailjs.send('service_gqoah4y', 'template_8vb8ppg', templeteParams, '6H4tRi_ZPt2FimCS5')
-        .then((response) => {
-            alert('E-mail enviado!', response.status, response.text)
-            setEmail('')
-            setName('')
-            setTelefone('')
-            setMessage('')
-        }, (err) => {
-            console.log(err)
-        })
+    const handlerSubmit = () => {
+        setEmail('');
+        setName('')
+        setTelefone('')
+        setMessage('')
     }
 
     return (  
@@ -56,52 +41,54 @@ const Contato = () => {
                     <a href='https://www.instagram.com/byloucosmetics/'>@byloucosmetics</a>
                 </Card>
             </Cards>
-            <Form onSubmit={sendEmail}>
+            <Form onSubmit={handlerSubmit} action='https://formsubmit.co/louipharma@gmail.com' method='POST'>
+            <input type="hidden" name="_next" value="https://bylou.vercel.app/#contato" />
+            <input type="hidden" name="_autoresponse" value="Recebi sua mensagem, muito obrigado por entrar em contato! Responderei o mais rápido possível..." />
                 <Input>
                     <input 
                     onChange={(e) => setEmail(e.target.value)} 
-                    placeholder='' 
+                    placeholder='E-mail' 
                     autoComplete='on' 
                     type="email" 
                     name="email"
                     value={email}
                     />
-                    <label><FontAwesomeIcon className='icon' icon={faEnvelope} />E-mail</label>
+                    <FontAwesomeIcon className='icon' icon={faEnvelope} />
                 </Input>
                 <Input>
                     <input 
                     onChange={(e) => setName(e.target.value)} 
-                    placeholder='' 
+                    placeholder='Nome' 
                     autoComplete="name" 
                     type="name" 
                     name="nome" 
                     required
                     value={name}
                     />
-                    <label><FontAwesomeIcon className='icon' icon={faUser} />Nome</label>
+                    <FontAwesomeIcon className='icon' icon={faUser} />
                 </Input>
                 <Input>
                     <IMaskInput
                     onChange={(e) => setTelefone(e.target.value)} 
                     autoComplete='false' 
                     mask="+55 (00) 00000-0000"
-                    placeholder='' 
+                    placeholder='Telefone' 
                     type="tel" 
                     name="telefone"
                     value={telefone}
                     />
-                    <label><FontAwesomeIcon className='icon' icon={faPhone} />Telefone</label>
+                    <FontAwesomeIcon className='icon' icon={faPhone} />
                 </Input>
                 <Input>
                     <textarea 
                     onChange={(e) => setMessage(e.target.value)} 
                     maxLength={250} 
-                    placeholder='' 
+                    placeholder='Mensagem' 
                     name="message" 
                     required
                     value={message}
                     />
-                    <label><FontAwesomeIcon className='icon' icon={faMessage} />Mensagem</label>
+                    <FontAwesomeIcon className='icon' icon={faMessage} />
                 </Input>
                 <Button>Enviar</Button>
             </Form>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from 'framer-motion';
 
-export const SContato = styled(motion.div)`
+export const SContato = styled(motion.section)`
     h1 {
         color: var(--green2);
         text-align: center;
@@ -59,7 +59,7 @@ export const Form = styled.form`
     input {
         border-radius: 5px;
         background-color: var(--grey);
-        padding: 15px;
+        padding: 15px 20px;
         width: 96.5%;
         border: 0;
         outline: 0;
@@ -89,10 +89,6 @@ export const Form = styled.form`
         border: 2px solid var(--green2) !important;
     }
 
-    input:invalid {
-        border-color: red !important;
-    }
-
     input:focus ~ label,
     textarea:focus ~ label,
     input:not(:placeholder-shown) ~ label,
@@ -112,6 +108,13 @@ export const Input = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
+
+    .icon {
+        position: absolute;
+        right: 20px;
+        top: 30px;
+        color: var(--green2);
+    }
 `;
 
 export const Cards = styled.div`
@@ -146,6 +149,7 @@ export const Card = styled.div`
         text-align: center;
         color: var(--green2);
         width: 100%;
+        transition: 0.4s all;
     }
 
     a {
@@ -153,6 +157,7 @@ export const Card = styled.div`
         text-align: center;
         color: var(--green);
         width: 100%;
+        transition: 0.4s all;
     }
 
     .icon {
@@ -161,7 +166,11 @@ export const Card = styled.div`
     }
 
     &:hover {
-        border: 2px solid var(--green2);
+        box-shadow: inset 0 -5.95em 0 0 var(--green);
+
+        h3, a {
+            color: #fff;
+        }
     }
 
     @media (max-width: 1020px) {
